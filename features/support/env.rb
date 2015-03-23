@@ -8,6 +8,8 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
 
+require_relative './knows_the_domain.rb'
+
 Capybara.app = NutmegClothing
 
 class NutmegClothingWorld
