@@ -10,7 +10,7 @@ Given(/^I have made a GET request for an individual stock item$/) do
 end
 
 Then(/^I should receive its information as a JSON$/) do
-    pending # express the regexp above with the code you wish you had
+  expect_json @item.extract 
 end
 
 When(/^I make a PUT request to "(.*?)" specifiying a product$/) do |address|

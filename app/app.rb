@@ -22,8 +22,8 @@ class NutmegClothing < Sinatra::Base
     json settings.stock_items.map(&:extract)
   end
 
-  get "/api/stock_items/:pid" do
-    if item = Item.find_by(pid: params[:pid])
+  get "/api/stock_items/:item_pid" do
+    if item = Item.find_by(pid: params[:item_pid])
       json item.extract
     else
       json({ status: 400 })
@@ -35,17 +35,11 @@ class NutmegClothing < Sinatra::Base
   end
 
   put '/api/shopping_cart' do
-    if (item = find_by_pid params[:item_pid])
+    if item = Item.find_by(pid: params[:item_pid])
       s.shopping_cart.add item
       200
     else
       400 
-    end
-  end
-
-  helpers do
-    def find_by_pid pid
-      s.stock_items.select {|item| item.pid === pid }.sample
     end
   end
 
