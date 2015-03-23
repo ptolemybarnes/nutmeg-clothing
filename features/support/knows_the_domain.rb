@@ -1,15 +1,15 @@
-
-class Item
-end
-
 module KnowsTheDomain
 
   def shopping_cart
     @shopping_cart ||= Capybara.app.shopping_cart 
   end
 
-  def new_item
-    Item.new
+  def stock_item
+    stock_items.pop
+  end
+
+  def stock_items
+    @stock_items ||= Capybara.app.stock_items.dup
   end
 
 end

@@ -2,7 +2,7 @@ Given(/^I am on the homepage$/) do
 end
 
 Given(/^I (?:have added|add) an item to the shopping cart$/) do
-  @item = new_item
+  @item = stock_item 
   shopping_cart.add @item
 end
 
