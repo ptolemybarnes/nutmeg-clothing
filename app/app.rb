@@ -7,19 +7,27 @@ class NutmegClothing < Sinatra::Base
   set :root, File.dirname(__FILE__)
   
   set :shopping_cart, ShoppingCart.new
-  set :stock_items  , Array.new(10, Item.new) 
+  set :stock_items  , Array.new(10, Item.new(name: "Jeans", category: "Men's Casualwear", price: 1000, quantity: 5))
   alias_method :s, :settings
 
   helpers Sinatra::JSON
 
   get '/' do
-    'Hello NutmegClothing!'
+    send_file "./app/views/index.html" 
   end
 
   # API
 
   get '/api/stock_items' do
     json settings.stock_items.map(&:extract)
+  end
+
+  get "/api/stock_items/:pid" do
+    if item = Item.find_by(pid: params[:pid])
+      json item.extract
+    else
+      json({ status: 400 })
+    end
   end
 
   get '/api/shopping_cart' do

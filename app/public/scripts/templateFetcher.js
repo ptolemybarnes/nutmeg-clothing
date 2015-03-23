@@ -13,6 +13,7 @@ var Template = function() {
     this.cached = {};
 };
 var T = new Template();
+var template = T;
 $.extend(Template.prototype, {
     render: function(name, callback) {
         if (T.isCached(name)) {

@@ -3,6 +3,16 @@ Given(/^I (?:make|have made) a GET request to "(.*?)"$/) do |address|
   expect_status 200
 end
 
+Given(/^I have made a GET request for an individual stock item$/) do
+  @item = grab_stock_item 
+  get "api/stock_items/#{@item.pid}"
+  expect_status 200
+end
+
+Then(/^I should receive its information as a JSON$/) do
+    pending # express the regexp above with the code you wish you had
+end
+
 When(/^I make a PUT request to "(.*?)" specifiying a product$/) do |address|
   @item = grab_stock_item
   put "#{address}", { item_pid: @item.pid }

@@ -1,9 +1,13 @@
 @api
 Feature: API
 
-  Scenario: View Stock Items 
+  Scenario: Retrieve JSON of Stock Items 
     Given I have made a GET request to "/api/stock_items"
     Then I should receive all stock items as a JSON
+
+  Scenario: Retrieve JSON of individual stock item
+    Given I have made a GET request for an individual stock item 
+    Then I should receive its information as a JSON
 
   Scenario: Add to my shopping cart
     When I make a PUT request to "/api/shopping_cart" specifiying a product
