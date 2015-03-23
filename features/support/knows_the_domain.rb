@@ -15,3 +15,18 @@ module KnowsTheDomain
 end
 
 World(KnowsTheDomain)
+
+module KnowsTheUserInterface
+
+  def visit_homepage
+    visit '/'
+  end
+
+  def add_to_shopping_cart item
+    find("#{item.pid} .add-to-cart").click
+  end
+
+end
+
+World(KnowsTheUserInterface)
+

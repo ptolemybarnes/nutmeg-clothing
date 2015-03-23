@@ -1,9 +1,10 @@
 Given(/^I am on the homepage$/) do
+  visit_homepage
 end
 
 Given(/^I (?:have added|add) an item to the shopping cart$/) do
   @item = stock_item 
-  shopping_cart.add @item
+  add_to_shopping_cart @item 
 end
 
 Given(/^I then remove it from the shopping cart$/) do
