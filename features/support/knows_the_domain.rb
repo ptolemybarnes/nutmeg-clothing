@@ -4,7 +4,7 @@ module KnowsTheDomain
     @shopping_cart ||= Capybara.app.shopping_cart 
   end
 
-  def stock_item
+  def grab_stock_item
     stock_items.pop
   end
 
@@ -23,7 +23,7 @@ module KnowsTheUserInterface
   end
 
   def add_to_shopping_cart item
-    find("#{item.pid} .add-to-cart").click
+    shopping_cart.add item 
   end
 
 end

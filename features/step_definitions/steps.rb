@@ -3,8 +3,12 @@ Given(/^I am on the homepage$/) do
 end
 
 Given(/^I (?:have added|add) an item to the shopping cart$/) do
-  @item = stock_item 
+  @item = grab_stock_item 
   add_to_shopping_cart @item 
+end
+
+Given(/^I have added some items to my shopping cart$/) do
+  2.times { add_to_shopping_cart(grab_stock_item) } 
 end
 
 Given(/^I then remove it from the shopping cart$/) do

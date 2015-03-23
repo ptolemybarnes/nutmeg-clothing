@@ -1,9 +1,23 @@
-require 'byebug'
-Given(/^I have made a GET request to "(.*?)"$/) do |address|
+Given(/^I (?:make|have made) a GET request to "(.*?)"$/) do |address|
   get "#{address}"
   expect_status 200
 end
 
-Then(/^I should receive all stock items as a JSON$/) do
-  expect_json_types([])
+When(/^I make a PUT request to "(.*?)" specifiying a product$/) do |address|
+  @item = grab_stock_item
+  put "#{address}", { item_pid: @item.pid }
+  expect_status 200
 end
+
+Then(/^I should receive all stock items as a JSON$/) do
+  expect_json_types(:array)
+end
+
+Then(/^the item should have been added to my shopping cart$/) do
+  expect(shopping_cart.items.map(&:pid)).to include(@item.pid)
+end
+
+Then(/^I should get a JSON of the contents of my shopping cart$/) do
+  expect_json_types(:array) 
+end
+
