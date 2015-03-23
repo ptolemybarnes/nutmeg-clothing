@@ -9,6 +9,10 @@ class ShoppingCart
     items << item
   end
 
+  def remove item
+    items.delete item
+  end
+
   def empty?
     items.empty?
   end
