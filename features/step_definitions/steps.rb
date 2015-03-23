@@ -7,6 +7,13 @@ Given(/^I (?:have added|add) an item to the shopping cart$/) do
   add_to_shopping_cart @item 
 end
 
+Given(/^I click to add an item to the shopping cart$/) do
+  @item = grab_stock_item 
+  within("#" + @item.pid) do
+    find('.add-to-cart').click
+  end
+end
+
 Given(/^I have added some items to my shopping cart$/) do
   2.times { add_to_shopping_cart(grab_stock_item) } 
 end

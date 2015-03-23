@@ -5,7 +5,7 @@ module KnowsTheDomain
   end
 
   def grab_stock_item
-    stock_items.pop
+    stock_items.sample
   end
 
   def stock_items
