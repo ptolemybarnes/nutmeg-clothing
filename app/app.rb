@@ -4,6 +4,8 @@ require_relative './lib/shopping_cart.rb'
 require_relative './lib/item.rb'
 
 class NutmegClothing < Sinatra::Base
+  set :root, File.dirname(__FILE__)
+  
   set :shopping_cart, ShoppingCart.new
   set :stock_items  , Array.new(10, Item.new) 
   alias_method :s, :settings
