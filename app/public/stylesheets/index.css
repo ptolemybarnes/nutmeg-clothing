@@ -16,7 +16,24 @@ body {
 div.item-widget-container {
   width: 32%;
   margin: 0.38% 0.28%;
-  padding-bottom: 40%;
   float: left;
   border: solid black 0.1em;
 }
+
+.item-widget {
+  width: 100%;
+  padding-top: 150%;
+  position: relative;
+}
+
+.item-widget-contents {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+
+
