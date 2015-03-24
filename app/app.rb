@@ -3,6 +3,8 @@ require 'sinatra/json'
 require_relative './lib/shopping_cart.rb'
 require_relative './lib/item.rb'
 
+require 'byebug'
+
 class NutmegClothing < Sinatra::Base
   set :root, File.dirname(__FILE__)
   

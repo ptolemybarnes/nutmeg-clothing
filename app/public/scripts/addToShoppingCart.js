@@ -5,7 +5,8 @@ $(document).ready(function() {
    $.ajax({
      url: '/api/shopping_cart',
      method: 'PUT',
-     data: { 'item_pid': itemPid }
+     data: { 'item_pid': itemPid },
+     success: refreshShoppingCart()
    })
  });
 
@@ -13,8 +14,9 @@ $(document).ready(function() {
     var itemPid = $(this).closest(".shopping-cart-item-contents").attr("id");
 
     $.ajax({
-      url: "/api/shopping_cart/#{itemPid}",
-      method: "DELETE"
+      url: "/api/shopping_cart/" + itemPid,
+      method: "DELETE",
+      success: refreshShoppingCart()
     });
   });
   
@@ -22,13 +24,16 @@ $(document).ready(function() {
     Handlebars.registerPartial("shoppingCartPartial", shoppingCartPartial);
   });
 
-  $.get('/api/shopping_cart', function(shoppingCartData) {
-    var shoppingCartData = { shoppingCartData: shoppingCartData };
+  var refreshShoppingCart = function() {
+    $.get('/api/shopping_cart', function(shoppingCartData) {
+      var shoppingCartData = { shoppingCartData: shoppingCartData };
 
-    template.render('shoppingCartTemplate', function(shoppingCartTemplate) {
-      $('.shopping-cart-container').html( shoppingCartTemplate( shoppingCartData) );
+      template.render('shoppingCartTemplate', function(shoppingCartTemplate) {
+        $('.shopping-cart-container').html( shoppingCartTemplate( shoppingCartData) );
+      });
     });
-  });
-
+  }
+  
+  refreshShoppingCart();
 });
 
