@@ -13,6 +13,11 @@ Feature: API
     When I make a PUT request to "/api/shopping_cart" specifiying a product
     Then the item should have been added to my shopping cart
 
+  Scenario: Request to remove item from the shopping cart
+    Given I have added an item to my shopping cart
+    When I make a DELETE request to "/api/shopping_cart/:item_pid"
+    Then the item should have been removed from my shopping cart
+
   Scenario: Retrieve JSON of shopping cart 
     Given I have added some items to my shopping cart
     When I make a GET request to "/api/shopping_cart"

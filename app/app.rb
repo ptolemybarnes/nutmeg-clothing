@@ -43,5 +43,13 @@ class NutmegClothing < Sinatra::Base
     end
   end
 
+  delete "/api/shopping_cart/:item_pid" do
+    if item = settings.shopping_cart.remove(Item.find_by(pid: params[:item_pid]))
+      200
+    else
+      400
+    end
+  end
+
   run! if app_file == $0
 end

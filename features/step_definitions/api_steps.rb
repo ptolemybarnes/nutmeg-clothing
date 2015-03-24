@@ -3,6 +3,15 @@ Given(/^I (?:make|have made) a GET request to "(.*?)"$/) do |address|
   expect_status 200
 end
 
+When(/^I make a DELETE request to "(.*?)"$/) do |address|
+  delete address.sub(':item_pid', shopping_cart.items.sample.pid)
+  expect_status 200
+end
+
+Then(/^the item should have been removed from my shopping cart$/) do
+  expect(shopping_cart).to be_empty 
+end
+
 Given(/^I have made a GET request for an individual stock item$/) do
   @item = grab_stock_item 
   get "api/stock_items/#{@item.pid}"

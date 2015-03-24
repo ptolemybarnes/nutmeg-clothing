@@ -1,3 +1,4 @@
+require 'byebug'
 module KnowsTheUserInterface
 
   def visit_homepage
