@@ -8,6 +8,15 @@ $(document).ready(function() {
      data: { 'item_pid': itemPid }
    })
  });
+
+  $(".shopping-cart-container").on("click", "img.remove-from-cart", function() {
+    var itemPid = $(this).closest(".shopping-cart-item-contents").attr("id");
+
+    $.ajax({
+      url: "/api/shopping_cart/#{itemPid}",
+      method: "DELETE"
+    });
+  });
   
   template.render('shoppingCartPartial', function(shoppingCartPartial) {
     Handlebars.registerPartial("shoppingCartPartial", shoppingCartPartial);
@@ -20,8 +29,6 @@ $(document).ready(function() {
       $('.shopping-cart-container').html( shoppingCartTemplate( shoppingCartData) );
     });
   });
-
-
 
 });
 
