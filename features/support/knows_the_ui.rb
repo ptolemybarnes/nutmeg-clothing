@@ -22,6 +22,10 @@ module KnowsTheUserInterface
     def add(item)
       page.find("##{item.pid} > img.shopping-cart").click
     end
+
+    def remove(item)
+      page.find("##{item.pid} > img.remove-from-cart").click
+    end
   end
 end
 

@@ -13,6 +13,7 @@ Feature: Shopping Cart
 
   Scenario: Removing a product from the Shopping Cart
     Given I have added an item to the shopping cart
-    But I then remove it from the shopping cart
+    And I am on the homepage
+    But I then click to remove it from the shopping cart
     Then my shopping cart should be empty
 
