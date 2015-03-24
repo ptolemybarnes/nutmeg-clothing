@@ -52,30 +52,14 @@ img.shopping-cart {
 /* SHOPPING CART */
 
 section.shopping-cart-container {
-  width: 30%;
-  right: 10%;
+  width: 20%;
+  right: 8%;
   top: 0;
   position: fixed;
-  height: 25%;
+  height: 92%;
   z-index: 1;
-  background-color: rgba(128, 128, 128, 0.9);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid black;
+  border-top: none;
 }
-
-.shopping-cart-point {
-  position: relative;
-  height: 0px;
-  width: 0px;
-  top: 30%;
-  float: left;
-  border-top: 50px solid rgba(128, 128, 128, 0.9);
-  border-left: 0px solid rgba(128, 128, 128, 0.9;
-  border-right: 20px solid rgba(128, 128, 128, 0);
-}
-
-#shopping-cart-point-right {
-  border-right: 0px solid rgba(128, 128, 128, 0.9);
-  border-left: 20px solid rgba(128, 128, 128, 0);
-}
-
-
 

@@ -10,7 +10,6 @@ Feature: Shopping Cart
     Given I have added an item to the shopping cart
     And I am on the homepage
     Then I should see the item in my shopping cart
-    
 
   Scenario: Removing a product from the Shopping Cart
     Given I have added an item to the shopping cart
