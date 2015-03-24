@@ -19,6 +19,7 @@ class NutmegClothing < Sinatra::Base
   # API
 
   get '/api/stock_items' do
+    puts "was hit"
     json settings.stock_items.map(&:extract)
   end
 
