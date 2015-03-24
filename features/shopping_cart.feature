@@ -6,6 +6,12 @@ Feature: Shopping Cart
     And I click to add an item to the shopping cart
     Then the shopping cart should have an item in it 
 
+  Scenario: Viewing the Shopping Cart
+    Given I have added an item to the shopping cart
+    And I am on the homepage
+    Then I should see the item in my shopping cart
+    
+
   Scenario: Removing a product from the Shopping Cart
     Given I have added an item to the shopping cart
     But I then remove it from the shopping cart
