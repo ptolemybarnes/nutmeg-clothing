@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
-  template.render('itemWidgetTemplate', function(itemWidgetTemplate) {
-    Handlebars.registerPartial("itemWidgetTemplate", itemWidgetTemplate);
+  template.render('stockItemsPartial', function(stockItemsPartial) {
+    Handlebars.registerPartial("stockItemsPartial", stockItemsPartial);
   });
 
   $.get('/api/stock_items', function(stockItemsData) {
