@@ -4,12 +4,13 @@ $(document).ready(function() {
     Handlebars.registerPartial("itemWidgetTemplate", itemWidgetTemplate);
   });
 
-    $.get('/api/stock_items', function(stockItemsData) {
-      var stockItemsData = { stockItemsData: stockItemsData };
+  $.get('/api/stock_items', function(stockItemsData) {
+    var stockItemsData = { stockItemsData: stockItemsData };
 
-      template.render('stockItemsTemplate', function(stockItemsTemplate) {
-        $('.stock-items-container').html( stockItemsTemplate(stockItemsData) );
-      });
+    template.render('stockItemsTemplate', function(stockItemsTemplate) {
+      $('.stock-items-container').html( stockItemsTemplate(stockItemsData) );
     });
+  });
+
 });
 

@@ -14,8 +14,8 @@ body {
 }
 
 div.item-widget-container {
-  width: 32%;
-  margin: 0.38% 0.28%;
+  width: 33%;
+  margin: 0.1666%;
   float: left;
   border: solid black 0.1em;
 }
@@ -32,6 +32,19 @@ div.item-widget-container {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+img.item-image {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+
+img.shopping-cart {
+  width: 17%;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
 }
 
 

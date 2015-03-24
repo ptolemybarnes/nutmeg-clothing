@@ -7,7 +7,7 @@ class NutmegClothing < Sinatra::Base
   set :root, File.dirname(__FILE__)
   
   set :shopping_cart, ShoppingCart.new
-  set :stock_items  , Array.new(10, Item.new(name: "Jeans", category: "Men's Casualwear", price: 1000, quantity: 5))
+  set :stock_items  , Array.new(10) { Item.new(name: "Jeans", category: "Men's Casualwear", price: 1000, quantity: 5) }
   alias_method :s, :settings
 
   helpers Sinatra::JSON

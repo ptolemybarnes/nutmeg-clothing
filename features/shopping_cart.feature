@@ -1,3 +1,4 @@
+@javascript
 Feature: Shopping Cart
 
   Scenario: Adding an Item to the Shopping Cart
