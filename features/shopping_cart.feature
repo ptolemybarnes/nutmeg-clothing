@@ -15,3 +15,4 @@ Feature: Shopping Cart
     Given I have added an item to the shopping cart
     But I then remove it from the shopping cart
     Then my shopping cart should be empty
+

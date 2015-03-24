@@ -13,7 +13,6 @@ class NutmegClothing < Sinatra::Base
   helpers Sinatra::JSON
 
   get '/' do
-    s.shopping_cart.add s.stock_items.sample
     send_file "./app/views/index.html" 
   end
 

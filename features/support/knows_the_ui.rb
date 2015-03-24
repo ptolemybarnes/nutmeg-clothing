@@ -21,7 +21,7 @@ module KnowsTheUserInterface
     end
 
     def empty?
-      page.find('.shopping-cart-items-container').empty?
+      page.find('.shopping-cart-container').all('*').empty?
     end
 
   end
