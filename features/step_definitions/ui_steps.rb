@@ -5,7 +5,7 @@ Given(/^I am on the homepage$/) do
 end
 
 Given(/^I click to add an item to the shopping cart$/) do
-  click_and_add_item_to_shopping_cart
+  shopping_cart_ui.add(grab_stock_item) 
 end
 
 Then(/^I should see the item in my shopping cart$/) do

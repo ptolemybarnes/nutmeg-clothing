@@ -8,11 +8,6 @@ module KnowsTheUserInterface
     @shopping_cart_ui ||= ShoppingCartUI.new(page)
   end
   
-  def click_and_add_item_to_shopping_cart
-    item = grab_stock_item 
-    find("##{item.pid} > img.shopping-cart").click
-  end
-
   class ShoppingCartUI
     attr_reader :page
 
@@ -23,9 +18,11 @@ module KnowsTheUserInterface
     def empty?
       page.find('.shopping-cart-container').all('*').empty?
     end
-
+    
+    def add(item)
+      page.find("##{item.pid} > img.shopping-cart").click
+    end
   end
-
 end
 
 
