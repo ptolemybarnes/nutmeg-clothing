@@ -37,6 +37,6 @@ Then(/^the item should have been added to my shopping cart$/) do
 end
 
 Then(/^I should get a JSON of the contents of my shopping cart$/) do
-  expect_json_types(:array) 
+  expect_json_keys :items
 end
 

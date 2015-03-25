@@ -26,7 +26,6 @@ $(document).ready(function() {
 
   var refreshShoppingCart = function() {
     $.get('/api/shopping_cart', function(shoppingCartData) {
-      var shoppingCartData = { shoppingCartData: shoppingCartData };
 
       template.render('shoppingCartTemplate', function(shoppingCartTemplate) {
         $('.shopping-cart-container').html( shoppingCartTemplate( shoppingCartData) );
