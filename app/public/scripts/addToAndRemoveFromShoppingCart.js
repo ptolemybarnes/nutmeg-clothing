@@ -2,8 +2,8 @@ $(document).ready(function() {
 
   function addToShoppingCart(itemPid) {
     $.post('/api/shopping_carts/1/stock_items/'+ itemPid, function() {
-      refreshShoppingCart()
-    })
+      refreshShoppingCart();
+    });
   } 
 
   function removeFromShoppingCart(itemPid) {

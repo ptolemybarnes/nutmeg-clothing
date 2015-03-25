@@ -21,3 +21,11 @@ Then(/^I should see a total price in my shopping cart$/) do
   shopping_cart_ui.total_price
 end
 
+Given(/^I add a voucher$/) do
+  voucher = Voucher.new(reduction: 500, id: 2)
+  vouchers << voucher
+end
+
+Then(/^the total price should be discounted$/) do
+  expect(shopping_cart.total_after_discount < shopping_cart.total).to eq true 
+end
