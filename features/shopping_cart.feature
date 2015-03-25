@@ -22,3 +22,8 @@ Feature: Shopping Cart
     And I am on the homepage
     Then I should see a total price in my shopping cart
 
+  Scenario: Adding a Voucer to the Shopping Cart
+    Given I have added some items to my shopping cart
+    And I add a voucher worth "5.00"
+    Then the total price should be discounted
+
