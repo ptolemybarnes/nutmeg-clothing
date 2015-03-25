@@ -40,3 +40,12 @@ Then(/^I should get a JSON of the contents of my shopping cart$/) do
   expect_json_keys :items
 end
 
+Given(/^I have made a GET request for available vouchers$/) do
+  get "api/vouchers"
+  expect_status 200
+end
+
+Then(/^I should receive voucher information as a JSON$/) do
+  expect_json({})
+end
+

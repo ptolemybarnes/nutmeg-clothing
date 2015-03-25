@@ -11,6 +11,10 @@ module KnowsTheDomain
   def stock_items
     @stock_items ||= Capybara.app.stock_items.dup
   end
+
+  def vouchers
+    @vouchers ||= Capybara.app.vouchers
+  end
   
   def add_to_shopping_cart item
     shopping_cart.add item 

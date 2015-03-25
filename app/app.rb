@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/json'
 require_relative './lib/shopping_cart.rb'
 require_relative './lib/item.rb'
+require_relative './lib/voucher.rb'
 
 require 'byebug'
 
@@ -10,6 +11,7 @@ class NutmegClothing < Sinatra::Base
   
   set :shopping_cart, ShoppingCart.new
   set :stock_items  , Array.new(10) { Item.new(name: "Jeans", category: "Men's Casualwear", price: 1000, quantity: 5) }
+  set :vouchers     , [Voucher.new(reduction: 500, description: "£5 off your order!")] 
   alias_method :s, :settings
 
   helpers Sinatra::JSON
@@ -51,6 +53,10 @@ class NutmegClothing < Sinatra::Base
     else
       400
     end
+  end
+
+  get "/api/vouchers" do
+    json settings.vouchers.map(&:extract)
   end
 
   run! if app_file == $0

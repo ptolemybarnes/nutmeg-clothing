@@ -9,6 +9,10 @@ Feature: API
     Given I have made a GET request for an individual stock item 
     Then I should receive its information as a JSON
 
+  Scenario: Retrieve JSON of available discount vouchers 
+    Given I have made a GET request for available vouchers
+    Then I should receive voucher information as a JSON
+
   Scenario: Request to add item to the shopping cart 
     When I make a PUT request to "/api/shopping_cart" specifiying a product
     Then the item should have been added to my shopping cart
