@@ -19,7 +19,7 @@ Feature: API
 
   Scenario: Request to remove item from the shopping cart
     Given I have added an item to my shopping cart
-    When I make a DELETE request to "/api/shopping_carts/1/stock_items/:item_pid"
+    When I make a DELETE request to have that item removed 
     Then the item should have been removed from my shopping cart
   
   Scenario: Request to add Voucher to Shopping Cart 

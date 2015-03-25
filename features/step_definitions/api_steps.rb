@@ -3,8 +3,8 @@ Given(/^I (?:make|have made) a GET request to "(.*?)"$/) do |address|
   expect_status 200
 end
 
-When(/^I make a DELETE request to "(.*?)"$/) do |address|
-  delete address.sub(':item_pid', shopping_cart.items.sample.pid)
+When(/^I make a DELETE request to have that item removed$/) do
+  delete "api/shopping_carts/1/stock_items/#{shopping_cart.items.sample.pid}"
   expect_status 200
 end
 
