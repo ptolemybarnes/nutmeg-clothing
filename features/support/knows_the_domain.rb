@@ -15,6 +15,10 @@ module KnowsTheDomain
   def vouchers
     @vouchers ||= Capybara.app.vouchers
   end
+
+  def voucher
+    @voucher  ||= vouchers.sample
+  end
   
   def add_to_shopping_cart item
     shopping_cart.add item 

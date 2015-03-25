@@ -1,12 +1,17 @@
 class ShoppingCart
-  attr_reader :items
+  attr_reader :items, :vouchers
 
   def initialize
-    @items = []
+    @items    = []
+    @vouchers = []
   end
 
   def add item
     items << item
+  end
+
+  def add_voucher voucher
+    vouchers << voucher
   end
 
   def remove item

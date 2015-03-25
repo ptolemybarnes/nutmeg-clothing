@@ -11,7 +11,8 @@ class NutmegClothing < Sinatra::Base
   
   set :shopping_cart, ShoppingCart.new
   set :stock_items  , Array.new(10) { Item.new(name: "Jeans", category: "Men's Casualwear", price: 1000, quantity: 5) }
-  set :vouchers     , [Voucher.new(reduction: 500, description: "£5 off your order!")] 
+  set :vouchers     , [Voucher.new(reduction: 500, description: "£5 off your order!",
+                                  id: 1)] 
   alias_method :s, :settings
 
   helpers Sinatra::JSON
@@ -34,21 +35,30 @@ class NutmegClothing < Sinatra::Base
     end
   end
 
-  get '/api/shopping_cart' do
+  get "/api/shopping_carts/:id" do
     json s.shopping_cart.extract
   end
 
-  put '/api/shopping_cart' do
+  post "/api/shopping_carts/:id/stock_items/:item_pid" do
     if item = Item.find_by(pid: params[:item_pid])
-      s.shopping_cart.add item
+      settings.shopping_cart.add item
       200
     else
-      400 
+      400
     end
   end
 
-  delete "/api/shopping_cart/:item_pid" do
+  delete "/api/shopping_carts/:id/stock_items/:item_pid" do
     if item = settings.shopping_cart.remove(Item.find_by(pid: params[:item_pid]))
+      200
+    else
+      400
+    end
+  end
+
+  post "/api/shopping_carts/:id/vouchers/:id" do
+    if voucher = settings.vouchers.find {|voucher| voucher.id == params[:id].to_i} 
+      settings.shopping_cart.add_voucher(voucher)
       200
     else
       400

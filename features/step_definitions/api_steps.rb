@@ -18,14 +18,14 @@ Given(/^I have made a GET request for an individual stock item$/) do
   expect_status 200
 end
 
-Then(/^I should receive its information as a JSON$/) do
-  expect_json @item.extract 
+Given(/^I have made a POST request to add an item to my shopping cart$/) do
+  @item = grab_stock_item 
+  post "api/shopping_carts/1/stock_items/#{@item.pid}"
+  expect_status 200
 end
 
-When(/^I make a PUT request to "(.*?)" specifiying a product$/) do |address|
-  @item = grab_stock_item
-  put "#{address}", { item_pid: @item.pid }
-  expect_status 200
+Then(/^I should receive its information as a JSON$/) do
+  expect_json @item.extract 
 end
 
 Then(/^I should receive all stock items as a JSON$/) do
@@ -47,5 +47,14 @@ end
 
 Then(/^I should receive voucher information as a JSON$/) do
   expect_json({})
+end
+
+Given(/^I have made a POST request to add a voucher to my shopping cart$/) do
+  post "/api/shopping_carts/1/vouchers/#{voucher.id}" 
+  expect_status 200
+end
+
+Then(/^the voucher should have been added to my shopping cart$/) do
+  expect(shopping_cart.vouchers).to include(voucher)
 end
 
