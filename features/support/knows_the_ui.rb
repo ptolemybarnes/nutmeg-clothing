@@ -27,6 +27,10 @@ module KnowsTheUserInterface
     def remove(item)
       page.find("##{item.pid} > img.remove-from-cart").click
     end
+
+    def total_price
+      page.find(".total-price").text
+    end
   end
 end
 

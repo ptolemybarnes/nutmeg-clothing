@@ -33,7 +33,7 @@ class NutmegClothing < Sinatra::Base
   end
 
   get '/api/shopping_cart' do
-    json s.shopping_cart.items.map(&:extract)
+    json s.shopping_cart.extract
   end
 
   put '/api/shopping_cart' do

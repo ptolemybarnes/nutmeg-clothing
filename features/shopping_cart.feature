@@ -17,3 +17,8 @@ Feature: Shopping Cart
     And I then click to remove it from the shopping cart
     Then my shopping cart should be empty
 
+  Scenario: Total Price for products in the Shopping Cart 
+    Given I have added some items to my shopping cart 
+    And I am on the homepage
+    Then I should see a total price in my shopping cart
+

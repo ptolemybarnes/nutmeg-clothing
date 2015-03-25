@@ -16,5 +16,9 @@ class ShoppingCart
   def empty?
     items.empty?
   end
+
+  def extract
+    { items: items.map(&:extract), total_price: items.map(&:price).inject(:+) }
+  end
 end
 
