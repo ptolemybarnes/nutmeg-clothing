@@ -10,11 +10,24 @@ describe Voucher do
         :available? => true })
   end
 
-  it 'is no longer available after being redeemed' do
-    voucher = Voucher.new(reduction: 500, description: "£5 discount!")
+  context 'on being redeemed' do
 
-    voucher.redeem!
+    it 'is no longer available' do
+      voucher = Voucher.new(reduction: 500, description: "£5 discount!")
 
-    expect(voucher.available?).to eq false
+      voucher.redeem!(10)
+
+      expect(voucher.available?).to eq false
+    end
+
+    it "raises an error if the total does not satisfy its applicability" do
+      voucher = Voucher.new(reduction: 100) do |total|
+        total < 1000
+      end
+
+      expect(lambda { voucher.redeem!(2000) }).to raise_error(
+        'The voucher is not applicable to your shopping cart')
+    end
   end
 end
+

@@ -1,11 +1,12 @@
 class Voucher 
   attr_reader :description, :reduction, :id
   
-  def initialize options = {}
-    @description = options[:description]
-    @reduction   = options[:reduction]
-    @id          = options[:id]
+  def initialize description: '', reduction:, id: 1, &block
+    @description = description 
+    @reduction   = reduction
+    @id          = id 
     @available   = true
+    @redeemability_criteria = block
   end
 
   def extract
@@ -13,12 +14,25 @@ class Voucher
     :available? => available? }
   end
 
-  def redeem!
+  def redeem!(total=nil)
+    check_redeemability(total) if @redeemability_criteria
     @available = false
   end
 
   def available?
     @available
+  end
+
+  private
+
+  def check_redeemability(total)
+    unless redeemable?(total)
+      fail 'The voucher is not applicable to your shopping cart'
+    end
+  end
+
+  def redeemable? total
+    @redeemability_criteria.call(total)
   end
 
 end
