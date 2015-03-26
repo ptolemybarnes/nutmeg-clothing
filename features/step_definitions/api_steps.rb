@@ -50,8 +50,22 @@ Then(/^I should receive voucher information as a JSON$/) do
 end
 
 Given(/^I have made a POST request to add a voucher to my shopping cart$/) do
+  vouchers << (voucher = Voucher.new(id: 1, reduction: 200))
   post "/api/shopping_carts/1/vouchers/#{voucher.id}" 
   expect_status 200
+end
+
+Given(/^I have made a POST request to add an invalid voucher to my shopping cart$/) do
+  vouchers << (voucher = Voucher.new(id: 2, reduction: 200) { false }) 
+  post "/api/shopping_carts/1/vouchers/#{voucher.id}"
+end
+
+Then(/^I should get an error status code$/) do
+  expect_status 412
+end
+
+Then(/^the voucher should not have been added to my shopping cart$/) do
+  expect(shopping_cart.vouchers.empty?).to eq true 
 end
 
 Then(/^the voucher should have been added to my shopping cart$/) do

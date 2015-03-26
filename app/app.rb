@@ -57,7 +57,11 @@ class NutmegClothing < Sinatra::Base
 
   post "/api/shopping_carts/:id/vouchers/:id" do
     if voucher = settings.vouchers.find {|voucher| voucher.id == params[:id].to_i} 
+      begin 
       settings.shopping_cart.add_voucher(voucher)
+      rescue RuntimeError => e
+        return 412 
+      end
       200
     else
       400

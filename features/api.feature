@@ -26,6 +26,11 @@ Feature: API
     Given I have made a POST request to add a voucher to my shopping cart
     Then the voucher should have been added to my shopping cart
 
+  Scenario: Request to add an invalid Voucher to Shopping Cart
+    Given I have made a POST request to add an invalid voucher to my shopping cart
+    Then I should get an error status code
+    And the voucher should not have been added to my shopping cart
+
   Scenario: Retrieve JSON of an individual Shopping Cart 
     Given I have added some items to my shopping cart
     When I make a GET request to "/api/shopping_carts/1"
