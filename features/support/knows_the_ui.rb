@@ -9,6 +9,23 @@ module KnowsTheUserInterface
     @shopping_cart_ui ||= ShoppingCartUI.new(page)
   end
 
+  def vouchers_ui
+    @vouchers_ui ||= VouchersUI.new(page)
+  end
+
+  class VouchersUI
+    attr_reader :page
+
+    def initialize(page)
+      @page = page
+    end
+
+    def empty?
+      page.find('.vouchers-contents ul').all('*').empty?
+    end
+
+  end
+
   class ShoppingCartUI
     attr_reader :page
 

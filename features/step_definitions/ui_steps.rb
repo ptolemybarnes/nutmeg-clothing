@@ -32,6 +32,6 @@ Then(/^the total price should be discounted$/) do
 end
 
 Then(/^the voucher is no longer available$/) do
-  expect(voucher.available?).to eq true
+  expect(vouchers_ui.empty?).to eq true
 end
 
