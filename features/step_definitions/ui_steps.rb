@@ -5,8 +5,9 @@ Given(/^I am on the homepage$/) do
 end
 
 Given(/^I click to add an item to the shopping cart$/) do
-  sleep(1)
-  shopping_cart_ui.add(grab_stock_item) 
+  stock_items << (item = Item.new(quantity: 1, name: 'Hat', price: 400))
+  visit_homepage
+  shopping_cart_ui.add(item) 
 end
 
 Given(/^I add an item worth "(.*?)" to the shopping cart$/) do |value|

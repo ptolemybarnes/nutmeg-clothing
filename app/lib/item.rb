@@ -25,6 +25,10 @@ class Item
   def self.items_list
     @@items_list ||= []
   end
+
+  def in_stock?
+    quantity > 0
+  end
  
   private 
 

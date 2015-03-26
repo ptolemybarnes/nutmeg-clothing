@@ -9,7 +9,7 @@ module KnowsTheDomain
   end
 
   def stock_items
-    @stock_items ||= Capybara.app.stock_items.dup
+    @stock_items ||= Capybara.app.stock_items
   end
 
   def vouchers

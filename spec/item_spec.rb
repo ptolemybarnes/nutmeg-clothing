@@ -15,5 +15,11 @@ describe Item do
 
     expect(Item.find_by(pid: item_to_find.pid)).to eq item_to_find
   end
+
+  it 'knows it its in stock' do
+    out_of_stock_item = Item.new(quantity: 0)
+
+    expect(out_of_stock_item.in_stock?).to be false
+  end
 end
 

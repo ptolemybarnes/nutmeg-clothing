@@ -3,7 +3,7 @@ require './app/lib/shopping_cart'
 describe ShoppingCart do
 
   let(:item)    { double('item', extract: {name: 'Jeans', price: 1500},
-                          price: 1500) }
+                          price: 1500, in_stock?: true )}
   let(:voucher) { double('voucher', reduction: 250, redeem!: nil) }
 
   it 'extracts to a hash with information about its items and total price' do
