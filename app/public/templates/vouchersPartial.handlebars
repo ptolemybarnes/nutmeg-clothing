@@ -3,7 +3,9 @@
     {{#this}}
       <li class='voucher' id='{{id}}'>
         {{description}} 
-        <button class='add-voucher' value='{{id}}'>Add</button>
+        {{#if available?}} 
+          <button class='add-voucher' value='{{id}}'>Add</button>
+        {{/if}}
       </li>
     {{/this}}
   </ul>

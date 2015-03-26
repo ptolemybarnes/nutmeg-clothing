@@ -9,7 +9,8 @@ class Voucher
   end
 
   def extract
-    { description: description, reduction: reduction, id: id }
+    { description: description, reduction: reduction, id: id,
+    :available? => available? }
   end
 
   def redeem!
