@@ -9,7 +9,7 @@ class Voucher
   end
 
   def extract
-    { description: description, reduction: reduction }
+    { description: description, reduction: reduction, id: id }
   end
 
 end

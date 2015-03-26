@@ -28,9 +28,7 @@ $(document).ready(function() {
     });
   }
 
-  removeFromShoppingCartListener( removeFromShoppingCart );
-  addToShoppingCartListener( addToShoppingCart );
- 
+
   template.render('shoppingCartPartial', function(shoppingCartPartial) {
     Handlebars.registerPartial("shoppingCartPartial", shoppingCartPartial);
   });
@@ -40,17 +38,35 @@ $(document).ready(function() {
   });
 
   var refreshShoppingCart = function() {
-    $.get('/api/shopping_carts/1', function(shoppingCartData) {
-      $.get('/api/vouchers',function(vouchersData) {
+    $.get('/api/shopping_carts/1', function( shoppingCartData ) {
+      $.get('/api/vouchers',function( vouchersData ) {
         shoppingCartData['vouchersData'] = vouchersData;
 
-        template.render('shoppingCartTemplate', function(shoppingCartTemplate) {
+        template.render('shoppingCartTemplate', function( shoppingCartTemplate ) {
           $('.shopping-cart-container').html( shoppingCartTemplate( shoppingCartData ) );
         });
       });
     });
   }
+  function addVoucherToShoppingCartListener(callback) {
+    $('.shopping-cart-container').on('click', 'button.add-voucher', function() {
+      var voucherID = $(this).attr('value');
+      
+      callback(voucherID); 
+    });
+  }
 
+  function addVoucherToShoppingCart(voucherID) {
+    $.post('/api/shopping_carts/1/vouchers/' + voucherID, function() {
+      refreshShoppingCart();
+    });
+  }
+  
   refreshShoppingCart();
+
+  // Listeners
+  removeFromShoppingCartListener( removeFromShoppingCart );
+  addToShoppingCartListener( addToShoppingCart );
+  addVoucherToShoppingCartListener( addVoucherToShoppingCart );
 });
 

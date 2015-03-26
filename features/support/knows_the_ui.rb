@@ -25,7 +25,9 @@ module KnowsTheUserInterface
     end
 
     def add_voucher(voucher)
-      raise 'Method #add_voucher not yet implemented'
+      page.within('.vouchers-contents') do
+        page.click_button('Add') 
+      end
     end
 
     def remove(item)

@@ -30,3 +30,4 @@ end
 Then(/^the total price should be discounted$/) do
   expect(shopping_cart.total_after_discount < shopping_cart.total).to eq true 
 end
+
