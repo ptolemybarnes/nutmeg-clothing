@@ -24,17 +24,17 @@ class ShoppingCart
 
   def extract
     {
-      items: items.map(&:extract), total_price: total_of_items, 
+      items: items.map(&:extract), total_price: total, 
       total_after_discount: total_after_discount
     }
   end
 
-  def total_of_items
-    items.map(&:price).inject(:+)
+  def total
+    (items.map(&:price).inject(:+) || 0 )
   end
 
   def total_after_discount
-    total_of_items - ( vouchers.map(&:reduction).inject(:+) || 0 )
+    total - ( vouchers.map(&:reduction).inject(:+) || 0 )
   end
 
 end

@@ -1,5 +1,8 @@
 {{#items}}
   <div class='shopping-cart-items-container'>{{> shoppingCartPartial this}}</div>
 {{/items}}
-<span class='total-price'>{{total_price}}</span>
+<span class='total-price'>Subtotal: {{total_price}}</span>
+<span class='total-after-discount'>Total: {{total_after_discount}}</span>
+
+<section class='vouchers'> {{> vouchersPartial vouchersData }} </section>
 

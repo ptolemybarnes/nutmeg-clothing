@@ -24,6 +24,6 @@ Feature: Shopping Cart
 
   Scenario: Adding a Voucher to the Shopping Cart
     Given I have added some items to my shopping cart
-    And I add a voucher 
+    And I click to add a voucher to my shopping cart
     Then the total price should be discounted
 

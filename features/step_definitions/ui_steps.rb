@@ -21,9 +21,10 @@ Then(/^I should see a total price in my shopping cart$/) do
   shopping_cart_ui.total_price
 end
 
-Given(/^I add a voucher$/) do
+Given(/^I click to add a voucher to my shopping cart$/) do
   voucher = Voucher.new(reduction: 500, id: 2)
   vouchers << voucher
+  shopping_cart_ui.add_voucher voucher
 end
 
 Then(/^the total price should be discounted$/) do

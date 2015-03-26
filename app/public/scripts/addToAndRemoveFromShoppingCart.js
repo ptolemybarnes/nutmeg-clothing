@@ -35,11 +35,18 @@ $(document).ready(function() {
     Handlebars.registerPartial("shoppingCartPartial", shoppingCartPartial);
   });
 
+  template.render('vouchersPartial', function(vouchersPartial) {
+    Handlebars.registerPartial('vouchersPartial', vouchersPartial);
+  });
+
   var refreshShoppingCart = function() {
     $.get('/api/shopping_carts/1', function(shoppingCartData) {
+      $.get('/api/vouchers',function(vouchersData) {
+        shoppingCartData['vouchersData'] = vouchersData;
 
-      template.render('shoppingCartTemplate', function(shoppingCartTemplate) {
-        $('.shopping-cart-container').html( shoppingCartTemplate( shoppingCartData) );
+        template.render('shoppingCartTemplate', function(shoppingCartTemplate) {
+          $('.shopping-cart-container').html( shoppingCartTemplate( shoppingCartData ) );
+        });
       });
     });
   }

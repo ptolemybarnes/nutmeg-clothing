@@ -24,6 +24,10 @@ module KnowsTheUserInterface
       page.find("##{item.pid} > img.shopping-cart").click
     end
 
+    def add_voucher(voucher)
+      raise 'Method #add_voucher not yet implemented'
+    end
+
     def remove(item)
       page.find("##{item.pid} > img.remove-from-cart").click
     end
