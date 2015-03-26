@@ -20,10 +20,9 @@ module KnowsTheUserInterface
       @page = page
     end
 
-    def empty?
-      page.find('.vouchers-contents ul').all('*').empty?
+    def any_available?
+      page.first('li.voucher button.add-voucher') ? true : false
     end
-
   end
 
   class ShoppingCartUI

@@ -22,8 +22,9 @@ Then(/^I should see a total price in my shopping cart$/) do
 end
 
 Given(/^I click to add a voucher to my shopping cart$/) do
-  voucher = Voucher.new(reduction: 500, id: 2)
+  voucher = Voucher.new(reduction: 500, id: 2, description: "5 pounds off!")
   vouchers << voucher
+  visit_homepage
   shopping_cart_ui.add_voucher voucher
 end
 
@@ -32,6 +33,6 @@ Then(/^the total price should be discounted$/) do
 end
 
 Then(/^the voucher is no longer available$/) do
-  expect(vouchers_ui.empty?).to eq true
+  expect(vouchers_ui.any_available?).to eq false
 end
 

@@ -11,8 +11,7 @@ class NutmegClothing < Sinatra::Base
   
   set :shopping_cart, ShoppingCart.new
   set :stock_items  , Array.new(10) { Item.new(name: "Jeans", category: "Men's Casualwear", price: 1000, quantity: 5) }
-  set :vouchers     , [Voucher.new(reduction: 500, description: "£5 off your order!",
-                                  id: 1)] 
+  set :vouchers     , [] 
   alias_method :s, :settings
 
   helpers Sinatra::JSON
