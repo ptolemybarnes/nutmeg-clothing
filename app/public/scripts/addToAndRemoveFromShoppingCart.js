@@ -57,9 +57,18 @@ $(document).ready(function() {
   }
 
   function addVoucherToShoppingCart(voucherID) {
-    $.post('/api/shopping_carts/1/vouchers/' + voucherID, function() {
-      refreshShoppingCart();
+    $.ajax({
+        url: '/api/shopping_carts/1/vouchers/' + voucherID,
+     method: 'POST',
+    success: refreshShoppingCart,
+ statusCode: {
+   412: invalidVoucherNotice
+ }
     });
+  }
+
+  function invalidVoucherNotice() {
+    $('section.vouchers').append('<p>Invalid Voucher</p>');
   }
   
   refreshShoppingCart();
