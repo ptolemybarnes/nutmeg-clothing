@@ -4,7 +4,7 @@ describe ShoppingCart do
 
   let(:item)    { double('item', extract: {name: 'Jeans', price: 1500},
                           price: 1500) }
-  let(:voucher) { double('voucer', reduction: 250) }
+  let(:voucher) { double('voucher', reduction: 250, redeem!: nil) }
 
   it 'extracts to a hash with information about its items and total price' do
     shopping_cart = ShoppingCart.new

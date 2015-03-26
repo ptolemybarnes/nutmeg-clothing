@@ -27,4 +27,5 @@ Feature: Shopping Cart
     And I am on the homepage
     And I click to add a voucher to my shopping cart
     Then the total price should be discounted
+    And the voucher is no longer available 
 

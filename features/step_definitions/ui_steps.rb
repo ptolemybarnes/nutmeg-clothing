@@ -31,3 +31,7 @@ Then(/^the total price should be discounted$/) do
   expect(shopping_cart.total_after_discount < shopping_cart.total).to eq true 
 end
 
+Then(/^the voucher is no longer available$/) do
+  expect(voucher.available?).to eq true
+end
+

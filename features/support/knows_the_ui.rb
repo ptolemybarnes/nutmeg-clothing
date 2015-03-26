@@ -8,7 +8,7 @@ module KnowsTheUserInterface
   def shopping_cart_ui
     @shopping_cart_ui ||= ShoppingCartUI.new(page)
   end
-  
+
   class ShoppingCartUI
     attr_reader :page
 
