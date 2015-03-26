@@ -35,3 +35,7 @@ Feature: Shopping Cart
     And I add a voucher applicable only to purchases over £50
     Then I should be alerted that the voucher is invalid
 
+  Scenario: Out of Stock items 
+    And there is a listing for an out-of-stock item 
+    Then I should not be able to add them to my shopping cart
+

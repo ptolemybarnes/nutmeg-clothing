@@ -7,6 +7,7 @@ class ShoppingCart
   end
 
   def add item
+    raise 'The item is out-of-stock' if item.quantity < 1
     items << item
   end
 

@@ -26,8 +26,8 @@ Then(/^I should see a total price in my shopping cart$/) do
 end
 
 Given(/^I click to add a voucher to my shopping cart$/) do
-  voucher = Voucher.new(reduction: 500, id: 2, description: "5 pounds off!")
-  vouchers << voucher
+  vouchers << (voucher = Voucher.new(reduction: 500, 
+                                     id: 2, description: "5 pounds off!"))
 
   visit_homepage
   shopping_cart_ui.add_voucher voucher
@@ -54,5 +54,13 @@ end
 
 Then(/^the voucher is no longer available$/) do
   expect(vouchers_ui.any_available?).to eq false
+end
+
+Given(/^there is a listing for an out\-of\-stock item$/) do
+  stock_items << (@item = Item.new(name: 'Straw Hat', price: 1000, quantity: 0))
+end
+
+Then(/^I should not be able to add them to my shopping cart$/) do
+  expect(lambda { shopping_cart.add(@item) }).to raise_error 'The item is out-of-stock'
 end
 
