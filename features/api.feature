@@ -17,6 +17,11 @@ Feature: API
     Given I have made a POST request to add an item to my shopping cart 
     Then the item should have been added to my shopping cart
 
+  Scenario: Request to add out-of-stock item to the shopping cart
+    Given I have made a POST request to add an out-of-stock item
+    Then I should get an error status code
+    And the item should not have been added to my shopping cart
+
   Scenario: Request to remove item from the shopping cart
     Given I have added an item to my shopping cart
     When I make a DELETE request to have that item removed 

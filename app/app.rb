@@ -40,7 +40,11 @@ class NutmegClothing < Sinatra::Base
 
   post "/api/shopping_carts/:id/stock_items/:item_pid" do
     if item = Item.find_by(pid: params[:item_pid])
+      begin
       settings.shopping_cart.add item
+      rescue RuntimeError => e
+        return 412
+      end
       200
     else
       400

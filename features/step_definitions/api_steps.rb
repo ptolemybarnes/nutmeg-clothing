@@ -24,6 +24,11 @@ Given(/^I have made a POST request to add an item to my shopping cart$/) do
   expect_status 200
 end
 
+Given(/^I have made a POST request to add an out\-of\-stock item$/) do
+  stock_items << (item = Item.new(quantity: 0, pid: 5))
+  post "api/shopping_carts/1/stock_items/#{item.pid}"
+end
+
 Then(/^I should receive its information as a JSON$/) do
   expect_json @item.extract 
 end
@@ -70,5 +75,9 @@ end
 
 Then(/^the voucher should have been added to my shopping cart$/) do
   expect(shopping_cart.vouchers).to include(voucher)
+end
+
+Then(/^the item should not have been added to my shopping cart$/) do
+  expect(shopping_cart.items.empty?).to eq true 
 end
 
