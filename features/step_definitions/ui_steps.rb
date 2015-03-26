@@ -24,6 +24,7 @@ end
 Given(/^I click to add a voucher to my shopping cart$/) do
   voucher = Voucher.new(reduction: 500, id: 2, description: "5 pounds off!")
   vouchers << voucher
+
   visit_homepage
   shopping_cart_ui.add_voucher voucher
 end

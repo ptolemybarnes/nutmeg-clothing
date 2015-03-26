@@ -29,3 +29,9 @@ Feature: Shopping Cart
     Then the total price should be discounted
     And the voucher is no longer available 
 
+  Scenario: Adding an Invalid Voucher to the Shopping Cart
+    Given I am on the homepage
+    And I click to add an item worth "£10" to the shopping cart
+    And I click to add a voucher applicable only to purchases over £50
+    Then I should be alerted that the voucher is invalid
+
