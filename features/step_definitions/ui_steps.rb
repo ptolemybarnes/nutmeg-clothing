@@ -41,8 +41,7 @@ Given(/^I add a voucher applicable only to purchases over £(\d+)$/) do |value|
     
   vouchers << voucher
   visit_homepage
-  expect(lambda { shopping_cart.add_voucher(voucher) }).to raise_error(
-    'The voucher is not applicable to your shopping cart' )
+  shopping_cart_ui.add_voucher(voucher)
 end
 
 Then(/^the total price should be discounted$/) do
