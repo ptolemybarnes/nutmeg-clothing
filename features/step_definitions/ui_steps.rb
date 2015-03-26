@@ -61,6 +61,6 @@ Given(/^there is a listing for an out\-of\-stock item$/) do
 end
 
 Then(/^I should not be able to add them to my shopping cart$/) do
-  expect(lambda { shopping_cart.add(@item) }).to raise_error 'The item is out-of-stock'
+  expect(stock_items_ui.addable?(item)).to eq false
 end
 
