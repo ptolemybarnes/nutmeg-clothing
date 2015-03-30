@@ -41,7 +41,7 @@ module KnowsTheUserInterface
     end
     
     def add(item)
-      page.find("##{item.pid} > img.shopping-cart").click
+      page.find("##{item.pid} > img.add-to-shopping-cart").click
     end
 
     def add_voucher(voucher)

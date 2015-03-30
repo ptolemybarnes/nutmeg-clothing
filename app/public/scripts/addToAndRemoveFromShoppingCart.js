@@ -18,7 +18,7 @@ $(document).ready(function() {
   } 
 
   function addToShoppingCartListener(callback) { 
-    $('.stock-items-container').on('click', 'img.shopping-cart', function() {
+    $('.stock-items-container').on('click', 'img.add-to-shopping-cart', function() {
       var itemPid = $(this).closest('.item-widget-contents').attr('id');
       callback(itemPid);
     });
