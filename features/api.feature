@@ -40,3 +40,4 @@ Feature: API
     Given I have added some items to my shopping cart
     When I make a GET request to "/api/shopping_carts/1"
     Then I should get a JSON of the contents of my shopping cart
+
