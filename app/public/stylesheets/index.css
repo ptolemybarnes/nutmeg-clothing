@@ -56,11 +56,15 @@ section.shopping-cart-container {
   right: 8%;
   top: 0;
   position: fixed;
-  height: 92%;
+  height: 6%;
   z-index: 1;
   background-color: rgba(255, 255, 255, 0.9);
   border: 2px solid black;
   border-top: none;
+}
+
+section.shopping-cart-container:hover {
+  height: 92%;
 }
 
 /* BANNER */
