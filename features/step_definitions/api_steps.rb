@@ -69,6 +69,10 @@ Then(/^I should get an error status code$/) do
   expect_status 412
 end
 
+Then(/^I should get an error message$/) do
+  expect_json({ message: 'The requested item is out of stock' })
+end
+
 Then(/^the voucher should not have been added to my shopping cart$/) do
   expect(shopping_cart.vouchers.empty?).to eq true 
 end

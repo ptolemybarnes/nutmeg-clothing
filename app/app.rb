@@ -43,7 +43,7 @@ class NutmegClothing < Sinatra::Base
       begin
       settings.shopping_cart.add item
       rescue RuntimeError => e
-        return 412
+        return json({ error: true, message: 'The requested item is out of stock' })
       end
       200
     else

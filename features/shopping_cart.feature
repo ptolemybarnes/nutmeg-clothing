@@ -36,6 +36,8 @@ Feature: Shopping Cart
     Then I should be alerted that the voucher is invalid
 
   Scenario: Out of Stock items 
+    Given I am on the homepage
     And there is a listing for an out-of-stock item 
     Then I should not be able to add them to my shopping cart
+    And I should an out-of-stock message
 

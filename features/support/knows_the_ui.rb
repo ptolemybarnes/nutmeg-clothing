@@ -5,6 +5,10 @@ module KnowsTheUserInterface
     visit '/'
   end
 
+  def refresh_page
+    visit_homepage
+  end
+
   def shopping_cart_ui
     @shopping_cart_ui ||= ShoppingCartUI.new(page)
   end

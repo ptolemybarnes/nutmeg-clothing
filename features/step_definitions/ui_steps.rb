@@ -59,9 +59,15 @@ end
 
 Given(/^there is a listing for an out\-of\-stock item$/) do
   stock_items << (@item = Item.new(name: 'Straw Hat', price: 1000, quantity: 0))
+  refresh_page
 end
 
 Then(/^I should not be able to add them to my shopping cart$/) do
-  expect(stock_items_ui.addable?(item)).to eq false
+  shopping_cart_ui.add(@item) 
+  expect(shopping_cart).to be_empty
+end
+
+Then(/^I should an out\-of\-stock message$/) do
+  expect(page).to have_content 'The requested item is out of stock' 
 end
 
