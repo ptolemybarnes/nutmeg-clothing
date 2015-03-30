@@ -10,9 +10,22 @@ body {
   margin: 0 auto;
 }
 
+section.shopping-cart-section {
+  width: 100%;
+  height: 5em;
+}
+
+img.shopping-cart-image {
+  width: 10%;
+  margin: auto;
+  display: block;
+}
+
 /* STOCK ITEMS */
 
-.stock-items-container { 
+section.stock-items-container {
+  width: 100%;
+  overflow: hidden;
 }
 
 div.item-widget-container {
@@ -72,7 +85,7 @@ section.banner-container {
 
 section.banner-contents {
   width: 100%;
-  height: 95%;
+  height: 100%;
   border: 2px solid black;
   background-color: black;
   border-top: none;
