@@ -1,16 +1,17 @@
 class Item
-  attr_reader :name, :pid, :price, :quantity
+  attr_reader :name, :pid, :price, :quantity, :category
 
   def initialize options = {}
     @name    = options[:name]
     @price   = options[:price]
     @quantity = options[:quantity]
+    @category = options[:category]
     @pid  = generate_product_id
     add_to_items_list self
   end
 
   def extract
-    { name: name, pid: pid, price: price, quantity: quantity }
+    { name: name, pid: pid, price: price, quantity: quantity, category: category}
   end
 
   def generate_product_id
