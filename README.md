@@ -3,9 +3,9 @@ Nutmeg Clothing: A Responsive Clothing Website
 
 ## Synopsis
 
-This project was undertaken as part of a technical test for a company in London. The brief was to build a responsive clothing website with features such as a shopping cart and voucher discounts.  
-*To run* $ rackup. 
-*Tests* $ bundle exec cucumber
+This project was undertaken as part of a technical test for a company in London. The brief was to build a responsive clothing website with features such as a shopping cart and voucher discounts.   
+*To run* $ rackup.   
+*Tests* $ bundle exec cucumber  
 
 ## Technologies Used
 
