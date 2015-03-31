@@ -36,6 +36,7 @@ I found that this strategy (along with unit tests) resulted in a well-factored t
 ## Still to complete/refactor
 
 - The API tests need to be refactored [ ]
+- Flickering Cucumber tests.
 
 ## Takeaway
 
