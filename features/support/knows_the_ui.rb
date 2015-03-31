@@ -41,6 +41,7 @@ module KnowsTheUserInterface
     end
     
     def add(item)
+      sleep(1)
       page.find("##{item.pid} > img.add-to-shopping-cart").click
     end
 
