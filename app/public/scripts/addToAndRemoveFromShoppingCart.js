@@ -13,7 +13,7 @@ $(document).ready(function() {
    $.ajax({
       url: "/api/shopping_carts/1/stock_items/" + itemPid,
       method: "DELETE",
-      success: refreshShoppingCart()
+      success: refreshShoppingCart
     });
   } 
 
