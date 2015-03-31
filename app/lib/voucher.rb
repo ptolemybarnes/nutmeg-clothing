@@ -14,8 +14,8 @@ class Voucher
     :available? => available? }
   end
 
-  def redeem!(total=nil)
-    check_redeemability(total) if @redeemability_criteria
+  def redeem!(total=nil, items=[])
+    check_redeemability(total, items) if @redeemability_criteria
     @available = false
   end
 
@@ -25,14 +25,14 @@ class Voucher
 
   private
 
-  def check_redeemability(total)
-    unless redeemable?(total)
+  def check_redeemability(total, items)
+    unless redeemable?(total, items)
       fail 'The voucher is not applicable to your shopping cart'
     end
   end
 
-  def redeemable? total
-    @redeemability_criteria.call(total)
+  def redeemable? total, items
+    @redeemability_criteria.call(total, items)
   end
 
 end

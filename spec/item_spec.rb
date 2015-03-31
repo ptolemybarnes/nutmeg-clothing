@@ -3,12 +3,6 @@ require 'byebug'
 
 describe Item do
 
-  it 'extracts public information into a hash' do
-    item = Item.new(name: 'Blue Jeans')
-    
-    expect(item.extract).to eq name: 'Blue Jeans', pid: item.pid
-  end
-
   it 'allows objects of the class Item to be retrieved with their pid' do
     item_to_find = Item.new
     5.times { Item.new }
@@ -20,6 +14,12 @@ describe Item do
     out_of_stock_item = Item.new(quantity: 0)
 
     expect(out_of_stock_item.in_stock?).to be false
+  end
+
+  it 'knows if its footwear' do
+    item = Item.new(name: 'Converse', category: 'footwear', quantity: 3)
+
+    expect(item.footwear?).to eq true
   end
 end
 

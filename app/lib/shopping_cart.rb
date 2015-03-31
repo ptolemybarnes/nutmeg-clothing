@@ -12,7 +12,7 @@ class ShoppingCart
   end
 
   def add_voucher voucher
-    voucher.redeem!(total)
+    voucher.redeem!(total, items)
     vouchers << voucher
   end
 

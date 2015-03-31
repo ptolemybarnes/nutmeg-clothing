@@ -25,7 +25,7 @@ Given(/^I have made a POST request to add an item to my shopping cart$/) do
 end
 
 Given(/^I have made a POST request to add an out\-of\-stock item$/) do
-  stock_items << (item = Item.new(quantity: 0, pid: 5))
+  stock_items << (item = Item.new(quantity: 0))
   post "api/shopping_carts/1/stock_items/#{item.pid}"
 end
 

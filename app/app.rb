@@ -3,15 +3,17 @@ require 'sinatra/json'
 require_relative './lib/shopping_cart.rb'
 require_relative './lib/item.rb'
 require_relative './lib/voucher.rb'
+require_relative './mock_data.rb'
 
 require 'byebug'
 
 class NutmegClothing < Sinatra::Base
   set :root, File.dirname(__FILE__)
+  include MockData
   
   set :shopping_cart, ShoppingCart.new
-  set :stock_items  , Array.new(10) { Item.new(name: "Jeans", category: "Men's Casualwear", price: 1000, quantity: 5) }
-  set :vouchers     , [] 
+  set :stock_items  , MockData::stock_items
+  set :vouchers     , MockData::vouchers
   alias_method :s, :settings
 
   helpers Sinatra::JSON

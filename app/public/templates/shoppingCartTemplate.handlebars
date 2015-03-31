@@ -1,10 +1,14 @@
 <section class='items-and-vouchers'>
+  <img class='shopping-cart-image' src='images/shopping_cart2.jpg'>
+
   {{#items}}
     <div class='shopping-cart-items-container'>{{> shoppingCartPartial this}}</div>
   {{/items}}
 
   <section class='vouchers'> {{> vouchersPartial vouchersData }} </section>
 </section>
-<span class='total-price'>Subtotal: {{total_price}}</span>
-<span class='total-after-discount'>Total: {{total_after_discount}}</span>
+<div class='shopping-cart-text'>
+  <span class='total-price'>Subtotal: {{total_price}}</span>
+  <span class='total-after-discount'>Total: {{total_after_discount}}</span>
+</div>
 

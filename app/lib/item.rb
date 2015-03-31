@@ -1,11 +1,11 @@
 class Item
   attr_reader :name, :pid, :price, :quantity, :category
 
-  def initialize options = {}
-    @name    = options[:name]
-    @price   = options[:price]
-    @quantity = options[:quantity]
-    @category = options[:category]
+  def initialize name: nil, price: nil, quantity: 1, category: nil
+    @name     = name
+    @price    = price 
+    @quantity = quantity 
+    @category = category 
     @pid  = generate_product_id
     add_to_items_list self
   end
@@ -29,6 +29,10 @@ class Item
 
   def in_stock?
     quantity > 0
+  end
+
+  def footwear?
+    category == 'footwear'
   end
  
   private 
