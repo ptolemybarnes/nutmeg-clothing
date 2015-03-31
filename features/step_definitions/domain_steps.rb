@@ -10,7 +10,8 @@ Given(/^I have added an item to my shopping cart$/) do
 end
 
 Given(/^I have added some items to my shopping cart$/) do
-  2.times { add_to_shopping_cart(grab_stock_item) } 
+  stock_items << (item1 = Item.new(name: 'Gold Button Cardigan, Black', category: "Women's Casualwear", price: 16700, quantity: 6))
+  add_to_shopping_cart(item1) 
 end
 
 Given(/^I then remove it from the shopping cart$/) do

@@ -13,7 +13,7 @@ Then(/^the item should have been removed from my shopping cart$/) do
 end
 
 Given(/^I have made a GET request for an individual stock item$/) do
-  @item = grab_stock_item 
+  stock_items << (@item = Item.new(name: 'Almond Toe Court Shoes, Patent Black', category: "Women's Footwear", price: 9900, quantity: 5))
   get "api/stock_items/#{@item.pid}"
   expect_status 200
 end

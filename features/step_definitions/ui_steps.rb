@@ -11,7 +11,8 @@ Given(/^I click to add an item to the shopping cart$/) do
 end
 
 Given(/^I add an item worth "(.*?)" to the shopping cart$/) do |value|
-  stock_items << Item.new(name: 'Fur Coat', price: (value * 100).to_i)
+  stock_items << Item.new(name: 'Fur Coat', price: (value * 100).to_i,
+                         quantity: 2)
 end
 
 Given(/^I then click to remove it from the shopping cart$/) do

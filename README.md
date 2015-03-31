@@ -1,42 +1,43 @@
-Title
+Nutmeg Clothing: A Responsive Clothing Website
 =======================
 
 ## Synopsis
 
-TODO: Enter a description of your project here.
-
-![NAME_OF_IMAGE](http://ENTER_URL)
+This project was undertaken as part of a technical test for a company in London. The brief was to build a responsive clothing website with features such as a shopping cart and voucher discounts.
 
 ## Technologies Used
 
-- LANGUAGE_ONE
-- LANGUAGE_TWO
-- FRAMEWORK
-- TESTING SUITES
+- Ruby / Sinatra 
+- jQuery / Handlebars.js 
+- RSpec / Capybara / Cucumber 
 
 ## Job List
 
-- [ ]
-- [ ]
-- [ ]
-- [ ]
+- Complete responsive design [ ]
 
 ## Favourite Code Snippet
 
-~~~
- TODO: paste code here
-~~~
+    class ShoppingCartUI
+      attr_reader :page
 
-## Collaborators
+      def initialize(page)
+        @page = page
+      end
 
-- NAME_ONE (http://www.github.com/USERNAME)
-- NAME_TWO (http://www.github.com/USERNAME)
+      def empty?
+        page.find('.shopping-cart-container').all('*').empty?
+      end
+    end
+
+With this project I employed a BDD strategy whereby you begin, via Cucumber, writing integration tests at the domain level. This allows you to sketch out the public interfaces of your classes. I would then "escalate" these integration tests into full feature tests by swapping out the domain-level objects for UI-level objects, as shown in the code snippet. This would compel me to implement the actual user-facing behaviour representing the domain-level interactions already coded.  
+  
+I found that this strategy (along with unit tests) resulted in a well-factored testing suite.
 
 ## Still to complete/refactor
 
-- [ ]
-- [ ]
+- The API tests need to be refactored [ ]
 
 ## Takeaway
 
-TODO: Enter a personal reflection and/or things you learnt
+I am interested in exploring this "escalatory" style of BDD further.
+
